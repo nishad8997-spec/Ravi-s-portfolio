@@ -34,6 +34,8 @@ export const profileData = {
     institution: "Siddharth University",
     notes: "Structuring core computer science concepts, programming fundamentals, and software architecture principles alongside active hands-on building."
   },
+  email: "nishad8997@gmai.com",
+  livePortfolio: "https://ravi-s-portfolio-mu.vercel.app/",
   socialLinks: [
     {
       name: "GitHub",
@@ -46,6 +48,12 @@ export const profileData = {
       url: "https://www.linkedin.com/in/ravi-nishad-tx00/",
       handle: "ravi-nishad-tx00",
       description: "Connect with me professionally and follow my development journey"
+    },
+    {
+      name: "Live Portfolio",
+      url: "https://ravi-s-portfolio-mu.vercel.app/",
+      handle: "ravi-s-portfolio-mu.vercel.app",
+      description: "Explore the live production deployment and interactive web application"
     }
   ],
   footer: {

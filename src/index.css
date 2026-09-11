@@ -1215,7 +1215,7 @@ a {
 
 .connect-profiles-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-top: 2rem;
 }
@@ -1331,11 +1331,35 @@ a {
   flex-shrink: 0;
 }
 
+.email-text-details {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
 .email-title {
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 0.2rem;
+}
+
+.email-address-link {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--accent-light);
+  text-decoration: none;
+  word-break: break-all;
+  overflow-wrap: anywhere;
+  transition: all var(--transition-fast);
+  display: inline-block;
+}
+
+.email-address-link:hover {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .email-desc {
@@ -1814,6 +1838,20 @@ a {
   }
 }
 
+@media (max-width: 640px) {
+  .email-card-section {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
+  }
+
+  .email-actions-group {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+}
+
 @media (max-width: 480px) {
   .hero-name {
     font-size: 2.25rem;
@@ -1836,6 +1874,38 @@ a {
     width: 100%;
     justify-content: space-between;
     padding: 0.95rem 1.4rem;
+  }
+
+  .email-card-section {
+    padding: 1.35rem 1.15rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
+  }
+
+  .email-actions-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.65rem;
+  }
+
+  .email-actions-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .email-card-section {
+    padding: 1.15rem 0.85rem;
+  }
+
+  .email-info-group {
+    gap: 0.85rem;
+  }
+
+  .email-address-link {
+    font-size: 0.92rem;
   }
 }
 

@@ -1,16 +1,14 @@
 import React, { useState } from "react";
-import { ExternalLink, MessageSquare, Mail, Copy, Check } from "lucide-react";
+import { ExternalLink, MessageSquare, Mail, Copy, Check, Globe } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "../components/Icons";
 
 export function Connect() {
   const [copied, setCopied] = useState(false);
 
-  // Note: Only verified contact channels are displayed.
-  // Direct communication is coordinated securely via LinkedIn.
+  const EMAIL_ADDRESS = "nishad8997@gmai.com";
 
-  const handleCopy = () => {
-    // If copied, trigger the animated feedback
-    navigator.clipboard?.writeText("https://www.linkedin.com/in/ravi-nishad-tx00/");
+  const handleCopyEmail = () => {
+    navigator.clipboard?.writeText(EMAIL_ADDRESS);
     setCopied(true);
     setTimeout(() => setCopied(false), 2200);
   };
@@ -26,7 +24,7 @@ export function Connect() {
             </div>
             <h1 className="section-title">Let's Connect</h1>
             <p className="section-desc">
-              Explore my work, follow what I'm building, or connect with me online through my verified developer profiles.
+              Explore my work, follow what I'm building, or connect with me online.
             </p>
           </header>
 
@@ -84,53 +82,76 @@ export function Connect() {
                 <ExternalLink size={15} />
               </div>
             </a>
+
+            {/* Live Portfolio Card */}
+            <a
+              href="https://ravi-s-portfolio-mu.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="connect-profile-card reveal-on-scroll stagger-3"
+              aria-label="Open Ravi Nishad's Live Portfolio in a new tab"
+            >
+              <div className="connect-profile-header">
+                <div className="connect-icon-box">
+                  <Globe size={26} />
+                </div>
+                <ExternalLink size={18} color="var(--text-muted)" />
+              </div>
+
+              <h2 className="connect-profile-name">Live Portfolio</h2>
+              <div className="connect-profile-handle">ravi-s-portfolio-mu.vercel.app</div>
+              <p className="connect-profile-desc">
+                Explore the deployed production portfolio application with theme switches and interactive builds.
+              </p>
+
+              <div className="connect-action-row">
+                <span>View Live Portfolio</span>
+                <ExternalLink size={15} />
+              </div>
+            </a>
           </div>
 
-          {/* Structured Email & Direct Contact Card (Section 18) */}
-          <div className="email-card-section reveal-on-scroll stagger-3">
+          {/* Confirmed Real Email Component */}
+          <div className="email-card-section reveal-on-scroll stagger-4" id="email-section">
             <div className="email-info-group">
               <div className="email-icon-box" aria-hidden="true">
                 <Mail size={22} />
               </div>
-              <div>
-                <h3 className="email-title">Direct Professional Communication</h3>
-                <p className="email-desc">
-                  Open for technical collaboration, full-stack builds, and workflow automation.
-                </p>
+              <div className="email-text-details">
+                <h3 className="email-title">Email</h3>
+                <a
+                  href={`mailto:${EMAIL_ADDRESS}`}
+                  className="email-address-link"
+                  aria-label={`Send email to ${EMAIL_ADDRESS}`}
+                >
+                  {EMAIL_ADDRESS}
+                </a>
               </div>
             </div>
 
             <div className="email-actions-group">
               <button
                 type="button"
-                className={`btn btn-secondary btn-sm ${copied ? "copy-btn-feedback" : ""}`}
-                onClick={handleCopy}
-                title="Copy LinkedIn Connection URL"
-                aria-label="Copy connection link to clipboard"
+                className={`btn btn-secondary btn-sm copy-email-btn ${copied ? "copy-btn-feedback" : ""}`}
+                onClick={handleCopyEmail}
+                title="Copy Email"
+                aria-label="Copy email address to clipboard"
+                id="btn-copy-email"
               >
-                {copied ? <Check size={15} color="var(--accent)" /> : <Copy size={15} />}
-                <span>{copied ? "Link Copied!" : "Copy Connect Link"}</span>
+                {copied ? <Check size={15} color="var(--accent-light)" /> : <Copy size={15} />}
+                <span>{copied ? "Copied!" : "Copy Email"}</span>
               </button>
 
               <a
-                href="https://www.linkedin.com/in/ravi-nishad-tx00/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-accent btn-sm"
+                href={`mailto:${EMAIL_ADDRESS}`}
+                className="btn btn-accent btn-sm email-mail-btn"
+                aria-label={`Send email to ${EMAIL_ADDRESS}`}
+                id="btn-send-email"
               >
-                <span>Message on LinkedIn</span>
-                <ExternalLink size={14} />
+                <Mail size={14} />
+                <span>Send Email</span>
               </a>
             </div>
-          </div>
-
-          <div className="connect-note-box reveal-on-scroll stagger-4">
-            <h3 style={{ fontSize: "1.05rem", fontWeight: 600, color: "var(--text-primary)", marginBottom: "0.4rem" }}>
-              Communication Guidelines
-            </h3>
-            <p>
-              To maintain authenticity and privacy, direct outreach is coordinated via <strong>LinkedIn</strong>. If you require email correspondence for technical proposals or repository review, please message directly through LinkedIn to receive verified contact details.
-            </p>
           </div>
         </div>
       </div>
